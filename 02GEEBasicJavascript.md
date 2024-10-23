@@ -38,7 +38,7 @@ var thisDict = {
      Cities : ["Kathmandu","Pokhara", "Bhairahawa"]
 };
 // Dictionary values are accessed using keys
-print('Accessing the continent and country:', thisDict['Continent']); // or thisDict.Continent
+print('Accessing the continent and country:', thisDict['Continent'], thisDict['Country']); // or thisDict.Continent
 print('Accessing Kathmandu city from cities key in thisDict: ', thisDict.Cities[0]);
 
 
