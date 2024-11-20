@@ -17,7 +17,7 @@ print('This command will print the contents within the quotes and the object(s) 
 ## Storing and printing numbers
 ```Javascript
 var myNumber = 90;
-print("The number in the variable myNumber is: ",90);
+print("The number in the variable myNumber is: ",myNumber);
 ```
 ## Lists
 ```Javascript
