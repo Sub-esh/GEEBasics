@@ -10,7 +10,7 @@ want to have multi-line comments,
 this is the way to do it
 */
 var myString1 = "this is a string in double quotes";
-var myString2 = 'string is single quotes are also allowed';
+var myString2 = 'string in single quotes are also allowed';
 print('This command will print the contents within the quotes and the object(s) following the quote', myString1);
 //remember to end each statement with a semicolon(;)
 ```
