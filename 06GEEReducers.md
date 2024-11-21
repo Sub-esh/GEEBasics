@@ -1,14 +1,13 @@
 # GEE Reducers
 
-GEE provides certain statistical functions, called reducers, which come in handy especially when dealing with time-series data and 
-anlyses.In this tutorial, we will be using the 16 day MODIS NDVI 250m reolutiono data. It is a course data and will not require much filtering like in the tutorial in the previous chapters. 
+GEE provides certain statistical functions, called reducers, which come in handy especially when dealing with time-series data analyses. In this tutorial, we will be using the 16-day MODIS NDVI 250m resolution data. It is a course data and will not require much filtering like in the tutorial in the previous chapters. 
 
-A simple way to visualize time-series data is to create onle layer over the other, or a stack of layers, with each layer
+A simple way to visualize time-series data is to create one layer over the other, or a stack of layers, with each layer
 from a different time period.This can be achieved in GEE using the toBands() function as given below.
 ```Javascript
 //define an area of interest(aoi) using the gui rectangle/polygon tool and import it as 'geometry'
 Map.centerObject(geometry) // center the aoi in the map for better visualisation
-var modis = ee.ImageCollection('MODIS/061/MOD13Q1')  //we will only require the NDVI band for this turorial
+var modis = ee.ImageCollection('MODIS/061/MOD13Q1')  
 var ndvi = modis.select('NDVI') // we will only be using 'ndvi' band for this tutorial
 .filterDate('2023','2024') //other filters are not necessary as resolution is course in MODIS
 .map(function(img){
@@ -21,14 +20,12 @@ var ndvi = modis.select('NDVI') // we will only be using 'ndvi' band for this tu
 var stacked = ndvi.toBands(); // 
 Map.addLayer(stacked.clip(geometry), {}, 'stacked_ndvi', false); // add result to the map for visualisation
 ```
-The stacked layers of different time periods can be better visualized using the "inspector" near the console tab of the GEE editor.
-When a point on the map is clicked with the inspector crosshair, the pixel-values of each layer at the point is displayed based on 
-the time period in a bar graph, which facilitates better ease of data interpretation. 
-It is often the case that, depending on the aoi, the code above could and often does result in error that is related to transformation of the co-ordinate systems. In such cases, we modify in line 20 above as ```stacked.clip(geometry.geometries())``` or ```stacked.clip(geometry.bounds())```. If the error persists, you might need to reproject our dataset(as shown in the following code block). One might be interested in performing pixel-wise simple statistical operations on the property of the layers over time. GEE's special functions, called reducers are useful for completing such tasks. An example is shown below:
+The stacked layers of different time periods can be better visualized using the "inspector" near the console tab of the GEE editor. When a point on the map is clicked with the inspector crosshair, the pixel-values of each layer at the point is displayed based on the time period in a bar graph, which facilitates better ease of data interpretation. 
+It is often the case that, depending on the aoi, the code above could and often does result in an error that is related to transformation of the co-ordinate systems. In such cases, we modify in line 20 above as ```stacked.clip(geometry.geometries())``` or ```stacked.clip(geometry.bounds())```. If the error persists, we might need to reproject our dataset(as shown in the following code block). One might be interested in performing pixel-wise simple statistical operations on the property of the layers over time. GEE's special functions, called reducers are useful for completing such tasks. An example is shown below:
 ```Javascript
   
 Map.centerObject(geometry) // center the aoi in the map for better visualisation
-var modis = ee.ImageCollection('MODIS/061/MOD13Q1')  //we will only require the NDVI band for this turorial
+var modis = ee.ImageCollection('MODIS/061/MOD13Q1')  
 var ndvi = modis.select('NDVI') // we will only be using 'ndvi' band for this tutorial
 .filterDate('2023','2024') //other filters are not necessary as resolution is course in MODIS
 .map(function(img){
