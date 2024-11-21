@@ -32,5 +32,5 @@ var singleImage = ee.Image('LANDSAT/LC09/C02/T2_L2/LC09_201024_20221209')
 ```
 Properties that need to be filtered have specific names described in the datasets which are accessed on the console to 
 the right of the GEE editor. 
-To get the parameters required for a function (eg. lt()), press ctrl + space after typing "lt" . 
+To get the parameters required for a function (eg. lt()), press `ctrl + space` after typing "lt" . 
 To get more information about the filters that can be used in GEE, search the docs for "filter".
