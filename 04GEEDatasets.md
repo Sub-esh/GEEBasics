@@ -2,7 +2,7 @@
 With such large volumes of datasets available in the GEE dataset catalogue, one could be intimidated to search and select the
 ones that are most relevant to their research or use case. 
 A simple way to filter datasests is to go to the GEE catalogue website and search using tags.
-Awesome-gee-community-catalog is another open-source catalogue that maintaines structured and easily filtered lists of 
+Awesome-gee-community-catalog is another open-source catalogue that maintains structured and easily filtered lists of 
 GEE datasests.
 
 ## Loading Datasets into GEE editor
